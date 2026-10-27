@@ -1,0 +1,8 @@
+[target.'cfg(all(target_os = "linux", target_env = "musl"))']
+rustflags = ["-C", "target-feature=+crt-static"]
+
+[target.'cfg(target_os = "windows")']
+rustflags = ["-C", "target-feature=+crt-static", "-C", "prefer-dynamic=no"]
+
+[target.'cfg(target_os = "macos")']
+rustflags = ["-C", "prefer-dynamic=no"]
